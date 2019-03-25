@@ -4,7 +4,7 @@
 
 [![npm download][download-image]][download-url]
 [![NPM version](https://badge.fury.io/js/async-retry.ts.png)](http://badge.fury.io/js/async-retry.ts)
-[![Build Status](https://travis-ci.com/Jeff-Tian/async-retyr.ts.svg?branch=master)](https://travis-ci.com/Jeff-Tian/async-retry.ts)
+[![Build Status](https://travis-ci.com/Jeff-Tian/async-retry.ts.svg?branch=master)](https://travis-ci.com/Jeff-Tian/async-retry.ts)
 [![Dependencies Status](https://david-dm.org/Jeff-Tian/async-retry.ts.png)](https://david-dm.org/jeff-tian/async-retry.ts)
 [![Coverage Status](https://coveralls.io/repos/github/Jeff-Tian/async-retry.ts/badge.svg?branch=master)](https://coveralls.io/github/Jeff-Tian/async-retry.ts?branch=master)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/Jeff-Tian/async-retry.ts)
@@ -21,15 +21,48 @@ npm install async-retry.ts --save
 ## 用法
 
 ### 简单示例：
-```typescript
 
+#### 非 async 版：
+
+```typescript
+import Action from 'async-retry.ts'
+
+const action = () => {}
+const handlers = [
+  {
+    error: 'error1',
+    handler: yourHandler1,
+  },
+  {
+    error: 'error2',
+    handler: yourHandler2,
+  },
+]
+
+Action.retry(action, 3, handlers)
+```
+
+#### async 版：
+
+```typescript
+import Action from 'async-retry.ts'
+
+const action = async()=>{}
+const handlers = [{
+  error: 'error1',
+  handler: async yourHandler1()=>{}
+}, {
+  error: 'error2',
+  handler: async yourHandler2()=>{}
+}]
+
+Action.retryAsync(action, 3, handlers)
 ```
 
 ### 完整示例：
+
 ```typescript
-
 ```
-
 
 ## 开发
 

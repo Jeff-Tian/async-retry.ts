@@ -2,7 +2,7 @@ import Action from '../index'
 import assert = require('assert')
 
 describe('可以重试', () => {
-  let db = null
+  let db: any = null
 
   function initDB() {
     db = []
