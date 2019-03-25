@@ -22,7 +22,9 @@ npm install async-retry.ts --save
 
 ### 简单示例：
 
-#### 非 async 版：
+#### TypeScript:
+
+##### 非 async 版：
 
 ```typescript
 import Action from 'async-retry.ts'
@@ -42,7 +44,7 @@ const handlers = [
 Action.retry(action, 3, handlers)
 ```
 
-#### async 版：
+##### async 版：
 
 ```typescript
 import Action from 'async-retry.ts'
@@ -56,7 +58,46 @@ const handlers = [{
   handler: async yourHandler2()=>{}
 }]
 
-Action.retryAsync(action, 3, handlers)
+await Action.retryAsync(action, 3, handlers)
+```
+
+#### JavaScript:
+
+##### 非 async 版：
+
+```javascript
+const Action = require('async-retry.ts').default
+
+const action = () => {}
+const handlers = [
+  {
+    error: 'error1',
+    handler: yourHandler1,
+  },
+  {
+    error: 'error2',
+    handler: yourHandler2,
+  },
+]
+
+Action.retry(action, 3, handlers)
+```
+
+##### async 版
+
+```javascript
+const Action =require('async-retry.ts').default
+
+const action = async()=>{}
+const handlers = [{
+  error: 'error1',
+  handler: async yourHandler1()=>{}
+}, {
+  error: 'error2',
+  handler: async yourHandler2()=>{}
+}]
+
+await Action.retryAsync(action, 3, handlers)
 ```
 
 ### 完整示例：
