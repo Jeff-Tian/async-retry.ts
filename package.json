@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "TS_NODE_TRANSPILE_ONLY=1 mocha --require espower-typescript/guess --timeout 3000 --exit 'src/test/*.test.ts'",
-    "test:coverage": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' node_modules/.bin/nyc npm test",
+    "test:coverage": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc npm test",
     "build": "tsc -p tsconfig.json",
     "prepare": "npm run build"
   },
