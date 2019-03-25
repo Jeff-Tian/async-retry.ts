@@ -47,7 +47,7 @@ async function handleException(ex, handlers, retry, retryResult, logger = consol
 }
 
 export default class RetryAsyncAction {
-  static async retry(action, maxRetryCount, handlers, logger = console) {
+  static async retry(action, maxRetryCount, handlers, logger) {
     logger.debug('(:o) trying Action with maxRetryCount = ', maxRetryCount, '...')
 
     if (maxRetryCount <= 0) {
@@ -65,7 +65,7 @@ export default class RetryAsyncAction {
           actionException,
           handlers,
           async () => {
-            return await RetryAsyncAction.retry(action, maxRetryCount - 1, handlers)
+            return await RetryAsyncAction.retry(action, maxRetryCount - 1, handlers, logger)
           },
           retryResult,
           logger,
@@ -75,7 +75,7 @@ export default class RetryAsyncAction {
           handlerException,
           handlers,
           async () => {
-            return await RetryAsyncAction.retry(action, maxRetryCount - 1, handlers)
+            return await RetryAsyncAction.retry(action, maxRetryCount - 1, handlers, logger)
           },
           retryResult,
         )

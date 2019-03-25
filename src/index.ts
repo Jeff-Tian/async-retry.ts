@@ -6,12 +6,16 @@ type Handlers = {
   handler: () => void
 }[]
 
+interface ILogger {
+  debug: Function
+}
+
 export default class Action {
-  static retry(action: () => void, maxRetryCount: number, handlers: Handlers, logger = console) {
+  static retry(action: () => void, maxRetryCount: number, handlers: Handlers, logger: ILogger = console) {
     return RetryAction.retry(action, maxRetryCount, handlers, logger)
   }
 
-  static retryAsync(action: () => Promise<void>, maxRetryCount: number, handlers: Handlers, logger = console) {
+  static retryAsync(action: () => Promise<void>, maxRetryCount: number, handlers: Handlers, logger: ILogger = console) {
     return RetryAsyncAction.retry(action, maxRetryCount, handlers, logger)
   }
 }

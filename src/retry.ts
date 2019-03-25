@@ -47,7 +47,7 @@ function handleException(ex, handlers, retry, retryResult, logger = console) {
 }
 
 export default class RetryAction {
-  static retry(action, maxRetryCount, handlers, logger = console) {
+  static retry(action, maxRetryCount, handlers, logger) {
     logger.debug('(:o) trying Action with maxRetryCount = ', maxRetryCount, '...')
 
     if (maxRetryCount <= 0) {
@@ -65,7 +65,7 @@ export default class RetryAction {
           actionException,
           handlers,
           () => {
-            return RetryAction.retry(action, maxRetryCount - 1, handlers)
+            return RetryAction.retry(action, maxRetryCount - 1, handlers, logger)
           },
           retryResult,
           logger,
@@ -75,7 +75,7 @@ export default class RetryAction {
           handlerException,
           handlers,
           () => {
-            return RetryAction.retry(action, maxRetryCount - 1, handlers)
+            return RetryAction.retry(action, maxRetryCount - 1, handlers, logger)
           },
           retryResult,
         )
