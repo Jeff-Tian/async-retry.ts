@@ -71,7 +71,7 @@ export default class RetryAsyncAction {
           logger,
         )
       } catch (handlerException) {
-        handlerException(
+        await handleException(
           handlerException,
           handlers,
           async () => {

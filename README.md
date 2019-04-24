@@ -9,6 +9,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/Jeff-Tian/async-retry.ts/badge.svg?branch=master)](https://coveralls.io/github/Jeff-Tian/async-retry.ts?branch=master)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/Jeff-Tian/async-retry.ts)
 
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+
 [download-image]: https://img.shields.io/npm/dm/async-retry.ts.svg?style=flat-square
 [download-url]: https://npmjs.org/package/async-retry.ts
 

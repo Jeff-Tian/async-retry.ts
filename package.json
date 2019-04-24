@@ -1,6 +1,6 @@
 {
   "name": "async-retry.ts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "async await version of co-retry.js(https://www.npmjs.com/package/co-retry.js), which can be used in both TypeScript and JavaScript.",
   "main": "lib/index.js",
   "directories": {
