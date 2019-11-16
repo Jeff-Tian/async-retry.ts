@@ -15,6 +15,9 @@
 [download-image]: https://img.shields.io/npm/dm/async-retry.ts.svg?style=flat-square
 [download-url]: https://npmjs.org/package/async-retry.ts
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=Jeff-Tian_async-retry.ts)](https://sonarcloud.io
+/dashboard?id=Jeff-Tian_async-retry.ts)
+
 ## 安装
 
 ```shell

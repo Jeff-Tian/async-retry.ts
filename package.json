@@ -1,6 +1,6 @@
 {
   "name": "async-retry.ts",
-  "version": "1.0.4",
+  "version": "0.0.0-development",
   "description": "async await version of co-retry.js(https://www.npmjs.com/package/co-retry.js), which can be used in both TypeScript and JavaScript.",
   "main": "lib/index.js",
   "directories": {
@@ -10,11 +10,12 @@
     "test": "TS_NODE_TRANSPILE_ONLY=1 mocha --require espower-typescript/guess --timeout 3000 --exit 'src/test/*.test.ts'",
     "test:coverage": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc npm test",
     "build": "tsc -p tsconfig.json",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Jeff-Tian/async-retry.ts.git"
+    "url": "https://github.com/Jeff-Tian/async-retry.ts.git"
   },
   "author": "jeff.tian@outlook.com",
   "license": "ISC",
@@ -38,7 +39,8 @@
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.3.3"
+    "typescript": "^3.3.3",
+    "semantic-release": "^15.13.30"
   },
   "types": "lib/index.d.ts",
   "nyc": {
