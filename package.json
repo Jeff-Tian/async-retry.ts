@@ -62,7 +62,7 @@
       "text-summary"
     ],
     "report-dir": "docs/reports/coverage",
-    "branches": 50,
+    "branches": 30,
     "lines": 70,
     "functions": 70,
     "statements": 70
