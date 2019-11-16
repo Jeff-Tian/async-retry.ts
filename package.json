@@ -61,6 +61,10 @@
       "text",
       "text-summary"
     ],
-    "report-dir": "docs/reports/coverage"
+    "report-dir": "docs/reports/coverage",
+    "branches": 70,
+    "lines": 70,
+    "functions": 70,
+    "statements": 70
   }
 }
