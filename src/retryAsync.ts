@@ -14,7 +14,7 @@ async function tryHandleError(expectedMessage, ex, handler, retry, retryResult, 
   }
 
   logger.debug(`handling "${ex.message} by ${expectedMessage} with retry: ${!!retry}...`)
-  handler()
+  await handler()
 
   if (retry) {
     retryResult.result = await retry()
