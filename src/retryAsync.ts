@@ -8,9 +8,18 @@ async function tryHandleError(expectedMessage, ex, handler, retry, retryResult, 
   }
 
   logger.debug(`testing "${ex.message}" by /${expectedMessage}/...`)
-  if (!expectedMessage.test(ex.message)) {
-    logger.debug(`:( can't handle "${ex.message} by ${expectedMessage}`)
-    return false
+  if (expectedMessage instanceof RegExp) {
+    if (!expectedMessage.test(ex.message)) {
+      logger.debug(`:( can't handle "${ex.message} by ${expectedMessage}`)
+      return false
+    }
+  } else if (typeof expectedMessage === 'function') {
+    if (!expectedMessage(ex)) {
+      logger.debug(`:( can't handle "${ex.message} by ${expectedMessage}`)
+      return false
+    }
+  } else {
+    throw new Error('expectedMessage should be string, RegExp or Function, but got ' + typeof expectedMessage)
   }
 
   logger.debug(`handling "${ex.message} by ${expectedMessage} with retry: ${!!retry}...`)

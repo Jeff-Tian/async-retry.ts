@@ -2,7 +2,7 @@ import RetryAction from './retry'
 import RetryAsyncAction from './retryAsync'
 
 type Handlers = {
-  error: string | RegExp
+  error: string | RegExp | Function
   handler: () => void
 }[]
 

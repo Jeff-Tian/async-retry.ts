@@ -28,7 +28,7 @@ describe('可以重试 async 操作', () => {
 
   const handlers = [
     {
-      error: "Cannot read property 'push' of null",
+      error: () => true,
       handler: initDB,
     },
   ]
