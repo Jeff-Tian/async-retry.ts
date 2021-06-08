@@ -2,7 +2,7 @@
 
 > async await version of [co-retry.js](https://www.npmjs.com/package/co-retry.js), which can be used in both TypeScript and JavaScript.
 
-[简体中文](./README-zh-CN.md)
+[English](./README.md)
 
 [![npm download][download-image]][download-url]
 [![NPM version](https://badge.fury.io/js/async-retry.ts.png)](http://badge.fury.io/js/async-retry.ts)
@@ -20,23 +20,19 @@
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=Jeff-Tian_async-retry.ts)](https://sonarcloud.io
 /dashboard?id=Jeff-Tian_async-retry.ts)
 
-## Installation
+## 安装
 
 ```shell
 npm install async-retry.ts --save
-
-# or 
-
-yarn add async-retry.ts
 ```
 
-## Usage
+## 用法
 
-### Simple Usage
+### 简单示例：
 
-#### TypeScript
+#### TypeScript:
 
-##### for sync
+##### 非 async 版：
 
 ```typescript
 import Action from 'async-retry.ts'
@@ -56,7 +52,7 @@ const handlers = [
 Action.retry(action, 3, handlers)
 ```
 
-##### for async 
+##### async 版：
 
 ```typescript
 import Action from 'async-retry.ts'
@@ -73,9 +69,9 @@ const handlers = [{
 await Action.retryAsync(action, 3, handlers)
 ```
 
-#### JavaScript
+#### JavaScript:
 
-##### for sync
+##### 非 async 版：
 
 ```javascript
 const Action = require('async-retry.ts').default
@@ -95,7 +91,7 @@ const handlers = [
 Action.retry(action, 3, handlers)
 ```
 
-##### for async
+##### async 版
 
 ```javascript
 const Action =require('async-retry.ts').default
@@ -112,42 +108,20 @@ const handlers = [{
 await Action.retryAsync(action, 3, handlers)
 ```
 
-### An example of retrying with delay
-
-Add delay logic in your error handlers, like so
+### 完整示例：
 
 ```typescript
-import Action from 'async-retry.ts'
-
-const action = async()=>{}
-const handlers = [{
-  error: 'error1',
-  handler: async yourHandler1()=>{
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    // handling
-  }
-}, {
-  error: 'error2',
-  handler: async yourHandler2()=>{
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    // handling...
-  }
-}]
-
-await Action.retryAsync(action, 3, handlers)
 ```
 
-## Development
+## 开发
 
-1. Run after code change
+1. 修改代码后跑
 
    ```shell
-   npm test 
-   # or 
-   yarn test
+   npm test
    ```
 
-   Make sure all tests pass。
+   确保测试通过。
 
 2. `git commit`
 3. `npm version patch/minor/major`
