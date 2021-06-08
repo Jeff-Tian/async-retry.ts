@@ -11,7 +11,8 @@
     "test:coverage": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc npm test",
     "build": "tsc -p tsconfig.json",
     "prepare": "npm run build",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "lint": "tslint -p tsconfig.json --fix"
   },
   "repository": {
     "type": "git",

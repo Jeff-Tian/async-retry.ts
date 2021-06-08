@@ -1,29 +1,29 @@
-import Action from '../index'
-import assert = require('assert')
+import Action from '../index';
+import assert = require('assert');
 
 describe('可以重试 async 操作', () => {
-  let db: any = null
+  let db: any = null;
 
   function initDB() {
-    db = []
+    db = [];
   }
 
   async function insertData() {
     await new Promise((resolve, reject) => {
       setTimeout(() => {
         try {
-          db.push(1)
-          resolve()
+          db.push(1);
+          resolve();
         } catch (ex) {
-          reject(ex)
+          reject(ex);
         }
-      }, 1000)
-    })
+      }, 1000);
+    });
   }
 
   async function insertAndReturn() {
-    await insertData()
-    return db
+    await insertData();
+    return db;
   }
 
   const handlers = [
@@ -31,17 +31,17 @@ describe('可以重试 async 操作', () => {
       error: () => true,
       handler: initDB,
     },
-  ]
+  ];
 
   it('async 能够成功', async () => {
-    await Action.retryAsync(insertData, 1, handlers)
-    assert(db.length === 1)
-  })
+    await Action.retryAsync(insertData, 1, handlers);
+    assert(db.length === 1);
+  });
 
   it('async 重试后能够返回值', async () => {
-    db = null
-    let result = await Action.retryAsync(insertAndReturn, 1, handlers)
-    assert(db.length === 1)
-    assert.deepStrictEqual(result, [1])
-  })
-})
+    db = null;
+    const result = await Action.retryAsync(insertAndReturn, 1, handlers);
+    assert(db.length === 1);
+    assert.deepStrictEqual(result, [1]);
+  });
+});
